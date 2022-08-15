@@ -7,7 +7,7 @@
 // when cities in the history are clicked that cities weather appears again        
 // when city is searched for put in local storage and make appear in history 
     // last searched city will pop up on the page
-var apiKey = '843fa40ad68a96668befb0da86d9b44b'
+var apiKey = 'b0469f4e1c3f9253b3981f03d9af2f82'
 var cityInput = document.getElementById('cityInputs')
 var citySearch = document.getElementById('citySearch')
 
@@ -22,8 +22,10 @@ fetch(url)
     console.log(data);
     var cityName = document.getElementById('cityName')
     var temp = document.getElementById('temp')
+    var weatherIcon = document.getElementById('weatherIcon')
     cityName.textContent = name
     temp.textContent = data.current.temp
+    weatherIcon.src = 'http://openweathermap.org/img/wn/' + data.current.weather[0].icon + '@2x.png'
 })
 }
 function locationData() {
