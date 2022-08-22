@@ -15,7 +15,7 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather dashboard</title>
   </head>
   <body>
@@ -26,19 +26,21 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-3">
+          <h2>Search for a city.</h2>
           <input class="form-control" type="text" id="cityInputs" placeholder="City Name"/><br>
-          <button class="btn btn-primary" type="button" id="citySearch">Search</button>
-          <div></div>
+          <button class="btn btn-primary btn-block" type="button" id="citySearch">Search</button>
+          <hr id="historyDivider" hidden>
+          <div id="searchHistory"></div>
         </div>
         <div class="col-9">
-          <div class="">
-            <h3 id="cityName">City Name:</h3>
-            <h5 id="">Date:</h5>
+          <div class="currentWeather" id="currentWeather" hidden>
+            <h3 id="cityName"></h3>
+            <h5 id="date"></h5>
             <img id="weatherIcon" src="" alt="icon describing the weather." />
-            <p id="temp">temp:</p>
-            <p id="">UV Index:</p>
-            <p id="">Humidity</p>
-            <p id="">Wind Speed</p>
+            <p>Temp: <span id="temp"></span></p>
+            <p>UV Index: <span id="uvIndex"></span></p>
+            <p>Humidity: <span id="humidity"></span></p>
+            <p>Wind Speed: <span id="wind"></span></p>
           </div>
           <div></div>
         </div>
