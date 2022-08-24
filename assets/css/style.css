@@ -3,3 +3,15 @@
     padding: 6px;
 }
 
+#fiveDay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+#fiveDay div {
+    border: 2px solid black;
+    padding: 6px;
+    min-width: 19%;
+    background-color: lightskyblue;
+}

@@ -10,6 +10,7 @@ var apiKey = "b0469f4e1c3f9253b3981f03d9af2f82";
 var cityInput = document.getElementById("cityInputs");
 var citySearch = document.getElementById("citySearch");
 var showHistoryDivider = false
+var fiveDay = document.getElementById('fiveDay');
 
 function weatherData(lat, lon, name) {
   var url =
@@ -40,6 +41,25 @@ function weatherData(lat, lon, name) {
 
       weatherIcon.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
     //   function to build cards
+      fiveDay.innerHTML = '';
+      for (var i = 1; i < 6; i++) {
+        var cardE = document.createElement('div')
+        var dateE = document.createElement('h4')
+        var iconE = document.createElement('img')
+        var tempE = document.createElement('p')
+        var humidityE = document.createElement('p')
+        var windE = document.createElement('p')
+
+        var dateFiveDay = new Date(data.daily[i].dt * 1000);
+        dateE.textContent = dateFiveDay.toLocaleDateString();
+        iconE.src = "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png";
+        tempE.textContent = data.daily[i].temp.day + " °F";
+        humidityE.textContent = data.daily[i].humidity + " %";
+        windE.textContent = data.daily[i].wind_speed + " mph";
+
+        cardE.append(dateE,iconE,tempE,humidityE,windE)
+        fiveDay.append(cardE)
+      }
     });
 }
 function locationData() {
@@ -102,12 +122,20 @@ function addCityToHistory(name) {
 function formatUVIndex(uvIndex) {
   var uvIndexEl = document.getElementById("uvIndex");
   uvIndexEl.textContent = uvIndex;
+  console.log(uvIndex);
   if (uvIndex >= 7) {
     uvIndexEl.classList.add("badge", "badge-pill", "badge-danger");
+    uvIndexEl.classList.remove('badge-success')
+    uvIndexEl.classList.remove('badge-warning')
+
   } else if (uvIndex >= 4) {
     uvIndexEl.classList.add("badge", "badge-pill", "badge-warning");
+    uvIndexEl.classList.remove('badge-danger')
+    uvIndexEl.classList.remove('badge-success')
   } else {
     uvIndexEl.classList.add("badge", "badge-pill", "badge-success");
+    uvIndexEl.classList.remove('badge-danger')
+    uvIndexEl.classList.remove('badge-warning')
   }
 }
 
