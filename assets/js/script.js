@@ -64,7 +64,7 @@ function weatherData(lat, lon, name) {
 }
 function locationData() {
   var cityName = cityInput.value;
-  var url = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + apiKey;
+  var url = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + apiKey;
 
   fetch(url)
     .then(function (response) {
