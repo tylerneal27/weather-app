@@ -47,15 +47,15 @@ function weatherData(lat, lon, name) {
         var dateE = document.createElement('h4')
         var iconE = document.createElement('img')
         var tempE = document.createElement('p')
-        var humidityE = document.createElement('p')
         var windE = document.createElement('p')
+        var humidityE = document.createElement('p')
 
         var dateFiveDay = new Date(data.daily[i].dt * 1000);
         dateE.textContent = dateFiveDay.toLocaleDateString();
         iconE.src = "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png";
-        tempE.textContent = data.daily[i].temp.day + " °F";
-        humidityE.textContent = data.daily[i].humidity + " %";
-        windE.textContent = data.daily[i].wind_speed + " mph";
+        tempE.textContent = 'Temp: ' + data.daily[i].temp.day + " °F";
+        windE.textContent = 'Wind Speed: ' + data.daily[i].wind_speed + " mph";
+        humidityE.textContent = 'Humidity: ' + data.daily[i].humidity + " %";
 
         cardE.append(dateE,iconE,tempE,humidityE,windE)
         fiveDay.append(cardE)
@@ -144,7 +144,7 @@ citySearch.addEventListener("click", locationData);
 
 document.addEventListener('DOMContentLoaded', function() {
     for (var index = 0; index < localStorage.length; index++) {
-        if(index === 1) {
+        if(index === 0) {
             showHistoryDivider = true
         }
         var name = localStorage.key(index)
