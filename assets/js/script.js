@@ -16,7 +16,11 @@ function weatherData(lat, lon, name) {
   var url =
     "https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
-  fetch(url)
+  fetch(url, {
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  })
     .then(function (response) {
       return response.json();
     })
@@ -66,7 +70,11 @@ function locationData() {
   var cityName = cityInput.value;
   var url = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + apiKey;
 
-  fetch(url)
+  fetch(url, {
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  })
     .then(function (response) {
       return response.json();
     })
