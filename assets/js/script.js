@@ -39,7 +39,7 @@ function weatherData(lat, lon, name) {
       humidityEl.textContent = data.current.humidity + " %";
       windEl.textContent = data.current.wind_speed + " mph";
 
-      weatherIcon.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
+      weatherIcon.src = "https://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
     //   function to build cards
       fiveDay.innerHTML = '';
       for (var i = 1; i < 6; i++) {
@@ -52,7 +52,7 @@ function weatherData(lat, lon, name) {
 
         var dateFiveDay = new Date(data.daily[i].dt * 1000);
         dateE.textContent = dateFiveDay.toLocaleDateString();
-        iconE.src = "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png";
+        iconE.src = "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png";
         tempE.textContent = 'Temp: ' + data.daily[i].temp.day + " °F";
         windE.textContent = 'Wind Speed: ' + data.daily[i].wind_speed + " mph";
         humidityE.textContent = 'Humidity: ' + data.daily[i].humidity + " %";
