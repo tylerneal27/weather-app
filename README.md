@@ -4,6 +4,6 @@
 
 ## description
 
-a website to look up the weather of places abd it will keep it in a history bar
+a website to look up the weather of places and it will keep them in a history bar.
 
 link to live site: [weather app](https://tylerneal27.github.io/weather-app/)
